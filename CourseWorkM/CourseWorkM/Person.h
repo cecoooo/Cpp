@@ -1,22 +1,29 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <ostream>
+#include "Address.h"
+using std::ostream;
 using std::string;
+using std::endl;
 
 class Person
 {
 private:
 	string name;
 	string egn;
-	char* address;
+	Address address;
 public:
-	Person();
+    Person();
+    Person(string nm, string egn, Address adr);
 	~Person();
 	string getName();
 	string getEGN();
-	char* getAddress();
+	Address getAddress();
 	void setName(string name);
 	void setEGN(string egn);
-	void setAddress(char* address, int len);
+	void setAddress(Address adr);
+	string toString();
+	friend std::ostream& operator<<(std::ostream& os, const Person& person);
 };
 

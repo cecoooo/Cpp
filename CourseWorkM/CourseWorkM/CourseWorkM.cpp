@@ -1,29 +1,22 @@
 #include <iostream>
 #include "Person.h"
 #include <string>;
-#include "AddressHolder.h"
+#include "Functions.h"
+#include "Property.h"
+
+
 using std::strcpy;
 using std::cin;
+using std::cout;
 
 int main()
 {
-    Person *person = new Person();
-    char* adr = (char*)malloc(16);
-    strcpy_s(adr,16, "Studentski grad");
-    person->setName("ivan");
-    person->setEGN("1234567890");
-    person->setAddress(adr, 16);
-    person->~Person();
-   
-
-    AddressHolder* ah = new AddressHolder();
-    ah->addAddress(adr, 16);
-    ah->addAddress(adr, 16);
-    ah->addAddress(adr, 16);
-    ah->addAddress(adr, 16);
-    ah->addAddress(adr, 16);
-    ah->addAddress(adr, 16);
-    ah->~AddressHolder();
-    free(adr);
-    adr = NULL;
+    Address* address = new Address("East Europe", "Bulgaria", "Plovdiv", "Ivan Vazov", 30);
+    Person *person = new Person("Ivan", "1234567890", *address);
+    Address* lookingForAddress = new Address("East Europe", "Bulgaria", "Sofia", "Lozenec", 12);
+    Property* prop = new Property(*lookingForAddress, 5, 5000000.00, false);
+    Functions* func = new Functions();
+    func->writeToFile(person->toString());
+    func->writeToFile(prop->toString());
+    cout << func->readFromFile();
 }

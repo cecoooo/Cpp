@@ -127,13 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Address.cpp" />
     <ClCompile Include="CourseWorkM.cpp" />
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Person.cpp" />
-    <ClCompile Include="AddressHolder.cpp" />
+    <ClCompile Include="Property.cpp" />
+    <ClCompile Include="Region.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Address.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="Person.h" />
-    <ClInclude Include="AddressHolder.h" />
+    <ClInclude Include="Property.h" />
+    <ClInclude Include="Region.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

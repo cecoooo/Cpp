@@ -1,0 +1,10 @@
+
+PERSON DATA
+Name: Ivan
+EGN: 1234567890
+Address: Bulgaria, Plovdiv, Ivan Vazov, 30 Region: East Europe
+PROPERTY DATA
+Bulgaria, Sofia, Lozenec, 12 Region: East Europe
+Number of rooms: 5
+Price: 5000000.000000
+For Rent

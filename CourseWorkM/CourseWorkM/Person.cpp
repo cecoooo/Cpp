@@ -1,18 +1,19 @@
 #include "Person.h"
+#include <ostream>
+using std::ostream;
 using std::strcpy;
 
-Person::Person() 
+
+Person::Person() {}
+
+Person::Person(string nm, string egn, Address adr) 
 {
-	
+    this->name = nm;
+    this->egn = egn;
+    address = adr;
 }
-Person::~Person() 
-{
-	if (this->address != NULL) 
-	{
-		free(this->address);
-		this->address = NULL;
-	}
-}
+
+Person::~Person() {}
 
 string Person::getName() 
 {
@@ -24,7 +25,7 @@ string Person::getEGN()
 	return this->egn;
 }
 
-char* Person::getAddress() 
+Address Person::getAddress() 
 {
 	return this->address;
 }
@@ -39,9 +40,20 @@ void Person::setEGN(string egn)
 	this->egn = egn;
 }
 
-void Person::setAddress(char* address, int len)
+void Person::setAddress(Address adr)
 {
-	char* newAdr = (char*)malloc(len);
-	strcpy_s(newAdr, len, address);
-	this->address = newAdr;
+	this->address = adr;
+}
+
+std::ostream& operator<<(std::ostream& os, const Person& person) {
+	os << "Name: " << person.name << std::endl;
+	os << "EGN: " << person.egn << std::endl;
+	return os;
+}
+
+string Person::toString() 
+{
+	return "PERSON DATA\nName: " + this->name + "\n"
+		+ "EGN: " + this->egn + "\n"
+		+ "Address: " + this->address.toString();
 }
