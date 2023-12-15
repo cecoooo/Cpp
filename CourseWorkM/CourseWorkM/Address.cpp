@@ -56,8 +56,8 @@ void Address::setNumber(int newNumber) {
 
 string Address::toString() 
 {
-    return country + ", " + town + ", " + street + ", " + std::to_string(number) + 
-        " " + "Region: " + this->getArea();
+    return "Region: " + this->getArea() + "\n" +
+        country + ", " + town + ", " + street + ", " + std::to_string(number);
 }
 
 std::ostream& operator<<(std::ostream& os, const Address& address) {
