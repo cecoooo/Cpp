@@ -60,6 +60,11 @@ string Address::toString()
         country + ", " + town + ", " + street + ", " + std::to_string(number);
 }
 
+string Address::ToString()
+{
+    return country + ", " + town + ", " + street + ", " + std::to_string(number);
+}
+
 std::ostream& operator<<(std::ostream& os, const Address& address) {
     os << "Country: " << address.country << ", Town: " << address.town
         << ", Street: " << address.street << ", Number: " << address.number;

@@ -12,6 +12,8 @@ private:
 public:
 	static string readFromFile();
     static void writeToFile(Person *p, Property *pr);
-    static string getAllPeopleByRegion(string region);
+    static void ImportPersonAndProperty();
+    static void printAllPeopleByRegion();
+    static void printPropertiesByEGN();
 };
 

@@ -55,5 +55,5 @@ string Person::toString()
 {
 	return "PERSON DATA\nName: " + this->name + "\n"
 		+ "EGN: " + this->egn + "\n"
-		+ "Address: " + this->address.toString();
+		+ "Address: " + this->address.ToString();
 }

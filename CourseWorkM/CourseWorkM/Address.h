@@ -21,7 +21,8 @@ public:
 	void setTown(string town);
 	void setStreet(string street);
 	void setNumber(int number);
-	string toString();
+    string toString();
+    string ToString();
     friend std::ostream& operator<<(std::ostream& os, const Address& address);
 };
 

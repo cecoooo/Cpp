@@ -1,8 +1,6 @@
 #include <iostream>
-#include "Person.h"
 #include <string>;
 #include "Functions.h"
-#include "Property.h"
 using std::strcpy;
 using std::cin;
 using std::cout;
@@ -10,60 +8,30 @@ using std::endl;
 
 int main()
 {
-    cout << "HELLO! THIS IS OUR SYSTEM FOR PROPERTIES AND CLIENTS" << endl;
-    while (true) 
-    {
-        cout << "PERSON DATA" << endl;
-        string clientName, egn, country, town, street;
-        int number;
-        cout << "Enter client name: ";
-        cin >> clientName;
-        cout << "Enter client EGN: ";
-        cin >> egn;
-        cout << "--Place Of Residence--" << endl;
-        cout << "Country: ";
-        cin >> country;
-        cout << "Town: ";
-        cin >> town;
-        cout << "Street: ";
-        cin >> street;
-        cout << "Number: ";
-        cin >> number;
-        cout << endl << "PROPERTY DATA" << endl;
-        int rooms, numberPr;
-        double price;
-        bool isForRent = true;
-        char yORn;
-        string countryPr, townPr, streetPr, region;
-        cout << "Number Of Rooms: ";
-        cin >> rooms;
-        cout << "Price: ";
-        cin >> price;
-        cout << "Is it for sale(y/n): ";
-        cin >> yORn;
-        if (yORn == 'n')
-            isForRent = false;
-        cout << "--Location--" << endl;
-        cout << "Region: ";
-        cin >> region;
-        cout << "Country: ";
-        cin >> countryPr;
-        cout << "Town: ";
-        cin >> townPr;
-        cout << "Street: ";
-        cin >> streetPr;
-        cout << "Number: ";
-        cin >> numberPr;
-        cout << endl;
-        Address* addressPerson = new Address(country, town, street, number);
-        Address* addressProperty = new Address(region, countryPr, townPr, streetPr, numberPr);
-        Person* person = new Person(clientName, egn, *addressPerson);
-        Property* prop = new Property(*addressProperty, rooms, price, isForRent);
-        Functions::writeToFile(person, prop);
-        cout << "Do you want to stop? (y/n)";
-        cin >> yORn;
-        if (yORn == 'y') 
+    cout << "HELLO! THIS IS OUR SYSTEM FOR PROPERTIES AND CLIENTS." << endl
+        << "WHAT DO YOU WANT TO DO?" << endl;
+    int input;
+    while (true) {
+        cout << "INSERT PERSON AND PROPERTY (PRESS '1')" << endl
+            << "LOOK FOR PEOPLE BY REGION (PRESS '2')" << endl
+            << "LOOK FOR PROPERTIES BY GIVEN PERSON (PRESS '3')" << endl
+            << "FOR EXIT PRESS '0'" << endl
+            << "INITIAL INPUT: ";
+        cin >> input;
+        cout << endl << "-----------" << endl;
+        switch (input)
+        {
+        case 1: Functions::ImportPersonAndProperty(); break;
+        case 2: Functions::printAllPeopleByRegion(); break;
+        case 3: Functions::printPropertiesByEGN(); break;
+        case 0: break;
+        default:
+            cout << "Invalid input. Try again" << endl;
             break;
-
+        }
+        if (input == 0)
+            break;
+        cout << "-----------" << endl;
     }
+    cout << "PROGRAM EXECUTED." << endl;
 }
