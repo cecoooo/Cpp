@@ -1,0 +1,10 @@
+﻿  Carrier.cpp
+C:\Users\User\Desktop\PushToGithub\c++\CourseProjectSem5\CourseProjectSem5\Carrier.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  CarrierCount.cpp
+  CourseProjectSem5.cpp
+C:\Users\User\Desktop\PushToGithub\c++\CourseProjectSem5\CourseProjectSem5\Carrier.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Library.cpp
+  User.cpp
+  UserCount.cpp
+  Generating Code...
+  CourseProjectSem5.vcxproj -> C:\Users\User\Desktop\PushToGithub\c++\CourseProjectSem5\x64\Debug\CourseProjectSem5.exe
