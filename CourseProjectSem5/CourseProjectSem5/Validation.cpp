@@ -1,5 +1,5 @@
 #include "Validation.h"
-#include "ErrMessages.h"
+#include "UserCount.h"
 
 
 int Validation::stringLengthWithoutWhiteSpaces(string s) 
@@ -42,5 +42,40 @@ int Validation::validateUserPhone(string phone)
 		return 164;
 	else if (!checkPhoneForInvalidSymbols(phone))
 		return 165;
+	return 0;
+}
+
+int Validation::validateCarrierType(string type) 
+{
+	if (stringLengthWithoutWhiteSpaces(type) < 2)
+		return 171;
+	return 0;
+}
+
+int Validation::validateCarrierAuthor(string author)
+{
+	if (stringLengthWithoutWhiteSpaces(author) < 2)
+		return 172;
+	return 0;
+}
+
+int Validation::validateCarrierTitle(string title)
+{
+	if (stringLengthWithoutWhiteSpaces(title) < 2)
+		return 173;
+	return 0;
+}
+
+int Validation::validateCarrierYearOfPublish(int year)
+{
+	if (year < 0 || year > 2024)
+		return 174;
+	return 0;
+}
+
+int Validation::validateUserId(int id) 
+{
+	if (id < 0 || id > UserCount::getUserCount())
+		return 175;
 	return 0;
 }

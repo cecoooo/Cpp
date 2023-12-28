@@ -4,7 +4,8 @@ class CarrierCount
 private:
 	static int carrierCount;
 protected:
-	static int getCarrierCount();
 	static void increaseCarrierCount();
+public:
+	static int getCarrierCount();
 };
 

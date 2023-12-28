@@ -11,5 +11,10 @@ public:
 	static void InvalidUserAge();
 	static void UserPhoneContainInvalidSymbols();
 	static void UserPhoneNotProperLenght();
+	static void CarrierInvalidTypeException();
+	static void CarrierInvalidAuthorException();
+	static void CarrierInvalidTitleException();
+	static void CarrierInvalidYearException();
+	static void NoUserFindWithGivenId();
 };
 

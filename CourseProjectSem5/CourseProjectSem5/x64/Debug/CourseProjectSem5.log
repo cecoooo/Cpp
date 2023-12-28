@@ -1,2 +1,2 @@
-﻿  User.cpp
-  CourseProjectSem5.vcxproj -> C:\Users\User\Desktop\PushToGithub\c++\CourseProjectSem5\x64\Debug\CourseProjectSem5.exe
+﻿CourseProjectSem5.obj : error LNK2019: unresolved external symbol "public: static class std::vector<class Carrier,class std::allocator<class Carrier> > __cdecl Library::getCarriers(void)" (?getCarriers@Library@@SA?AV?$vector@VCarrier@@V?$allocator@VCarrier@@@std@@@std@@XZ) referenced in function main
+C:\Users\User\Desktop\PushToGithub\c++\CourseProjectSem5\x64\Debug\CourseProjectSem5.exe : fatal error LNK1120: 1 unresolved externals

@@ -1,24 +1,24 @@
 #include <iostream>
 #include "User.h"
-#include"CarrierCount.h"
-#include"Carrier.h"
+#include "Carrier.h"
+#include "Library.h"
 using std::cout;
+using std::endl;
 
 int main()
 {
-    User user;
-    user.setName("Ij");
-    user.setAge(14);
-    user.setPhone("1234567890");
-    cout << user.toString();
-    User user1;
-    user1.setName("Ij");
-    user1.setAge(14);
-    user1.setPhone("1234567890");
-    cout << user1.toString();
-    User user2;
-    user2.setName("Ij");
-    user2.setAge(14);
-    user2.setPhone("1234567890");
-    cout << user2.toString();
+    User u("Ivan", 19, "0888123456");
+    cout << u;
+    Carrier c("Book", "J.K.Rolling", "Harry Potter", 1999);
+    cout << c;
+    Carrier c1("Book", "J.K.Rolling", "Harry Potter", 1999);
+    Carrier c2("CD", "J.K.Rolling", "Harry Potter", 1999);
+    Carrier c3("DVD", "J.K.Rolling", "Harry Potter", 1999);
+    Carrier c4("CD-ROM", "J.K.Rolling", "Harry Potter", 1999);
+    Carrier c5("CD-Ciganin", "J.K.Rolling", "Harry Potter", 1999);
+    Carrier c6("Audio Book", "J.K.Rolling", "Harry Potter", 1999);
+    for (size_t i = 0; i < Library::getCarriers().size(); i++)
+    {
+        cout << Library::getCarriers()[i].toString() << endl;
+    }
 }

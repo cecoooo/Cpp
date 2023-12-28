@@ -4,7 +4,8 @@ class UserCount
 private:
 	static int userCount;
 protected:
-	static int getUserCount();
 	static void increaseUserCount();
+public:
+	static int getUserCount();
 };
 

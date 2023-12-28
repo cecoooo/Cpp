@@ -2,8 +2,10 @@
 #include <string>
 #include <vector>
 #include "UserCount.h"
+#include <ostream>
 using std::string;
 using std::vector;
+using std::ostream;
 
 
 class User:UserCount
@@ -11,7 +13,7 @@ class User:UserCount
 private:
 	int id;
 	string name = "ab";
-	int age = 0;
+	int age = 14;
 	string phone = "0000000000";
 	vector<int> carrierIds;
 public:
@@ -28,5 +30,6 @@ public:
 	void setPhone(string p);
 	void borrowCarrier(int c);
 	string toString();
+	friend ostream& operator<<(ostream& os, const User& dt);
 };
 

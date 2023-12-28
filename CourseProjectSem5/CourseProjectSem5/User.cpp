@@ -113,3 +113,9 @@ string User::toString()
 		"Age: " + std::to_string(this->age) + '\n' +
 		"Phone: " + this->phone + '\n';
 }
+
+ostream& operator<<(ostream& os, const User& u)
+{
+	os << u.id << '/' << u.name << '/' << u.age << '/' << u.phone << '\n';
+	return os;
+}
