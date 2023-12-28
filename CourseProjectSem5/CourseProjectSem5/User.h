@@ -10,13 +10,13 @@ class User:UserCount
 {
 private:
 	int id;
-	string name;
-	int age=0;
-	string phone;
+	string name = "ab";
+	int age = 0;
+	string phone = "0000000000";
 	vector<int> carrierIds;
 public:
 	User();
-	User(int i, string n, int a, string ph);
+	User(string n, int a, string ph);
 	~User();
 	int getId();
 	string getName();
@@ -27,5 +27,6 @@ public:
 	void setAge(int a);
 	void setPhone(string p);
 	void borrowCarrier(int c);
+	string toString();
 };
 

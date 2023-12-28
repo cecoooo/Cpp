@@ -1,18 +1,10 @@
 #include "User.h"
-
-
-//User();
-//User(int i, string n, int a, string ph);
-//~User();
-//int getId();
-//string getName();
-//int getAge();
-//string getPhone();
-//vector<int> getCarrierIds();
-//void setName(string n);
-//void setAge(int a);
-//void setPhone(string p);
-//void borrowCarrier(int c);
+#include "ErrMessages.h"
+#include "Validation.h"
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
 
 
 User::User() 
@@ -21,8 +13,11 @@ User::User()
 	this->id = UserCount::getUserCount();
 }
 
-User::User(int i, string n, int a, string ph) 
+User::User(string n, int a, string ph) 
 {
+	setName(n);
+	setAge(a);
+	setPhone(ph);
 	UserCount::increaseUserCount();
 	this->id = UserCount::getUserCount();
 }
@@ -56,8 +51,65 @@ vector<int> User::getCarrierIds()
 
 void User::setName(string n) 
 {
-	if (n.size() > 50 || n.size() < 2) 
+	int code = Validation::validateUserName(n);
+	while (code)
 	{
-		
+		if(code == 161)
+			ErrMessages::UserNameTooLongError();
+		if (code == 162)
+			ErrMessages::UserNameTooShortError();
+		else
+			ErrMessages::UnknownException();
+		cout << "Try Again: " << endl;
+		cin >> n;
+		code = Validation::validateUserName(n);
 	}
+	this->name = n;
+}
+
+void User::setAge(int a) 
+{
+	int code = Validation::validateUserAge(a);
+	while (code)
+	{
+		if (code == 163)
+			ErrMessages::InvalidUserAge();
+		else
+			ErrMessages::UnknownException();
+		cout << "Try Again: " << endl;
+		cin >> a;
+		code = Validation::validateUserAge(a);
+	}
+	this->age = a;
+}
+
+void User::setPhone(string ph) 
+{
+	int code = Validation::validateUserPhone(ph);
+	while (code)
+	{
+		if (code == 164)
+			ErrMessages::UserPhoneNotProperLenght();
+		else if (code == 165)
+			ErrMessages::UserPhoneContainInvalidSymbols();
+		else
+			ErrMessages::UnknownException();
+		cout << "Try Again: " << endl;
+		cin >> ph;
+		code = Validation::validateUserPhone(ph);
+	}
+	this->phone = ph;
+}
+
+void User::borrowCarrier(int id) 
+{
+	this->carrierIds.push_back(id);
+}
+
+string User::toString() 
+{
+	return "User ID: " + std::to_string(this->id) + '\n' +
+		"Name: " + this->name + '\n' +
+		"Age: " + std::to_string(this->age) + '\n' +
+		"Phone: " + this->phone + '\n';
 }
