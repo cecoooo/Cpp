@@ -2,6 +2,7 @@
 #include "ErrMessages.h"
 #include "Validation.h"
 #include <iostream>
+#include "Library.h"
 using std::cin;
 using std::cout;
 using std::endl;
@@ -11,6 +12,7 @@ User::User()
 {
 	UserCount::increaseUserCount();
 	this->id = UserCount::getUserCount();
+	Library::addUser(*this);
 }
 
 User::User(string n, int a, string ph) 
@@ -20,6 +22,7 @@ User::User(string n, int a, string ph)
 	setPhone(ph);
 	UserCount::increaseUserCount();
 	this->id = UserCount::getUserCount();
+	Library::addUser(*this);
 }
 
 User::~User() {}
@@ -116,6 +119,11 @@ string User::toString()
 
 ostream& operator<<(ostream& os, const User& u)
 {
-	os << u.id << '/' << u.name << '/' << u.age << '/' << u.phone << '\n';
+	os << u.id << '/' << u.name << '/' << u.age << '/' << u.phone;
+	for (size_t i = 0; i < u.carrierIds.size(); i++)
+	{
+		os << '/' << u.carrierIds[i];
+	}
+	os << '\n';
 	return os;
 }

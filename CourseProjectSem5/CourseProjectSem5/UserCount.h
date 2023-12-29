@@ -3,6 +3,7 @@ class UserCount
 {
 private:
 	static int userCount;
+	static int getLatestUserId();
 protected:
 	static void increaseUserCount();
 public:
