@@ -16,5 +16,7 @@ public:
 	static void CarrierInvalidTitleException();
 	static void CarrierInvalidYearException();
 	static void NoUserFindWithGivenId();
+	static void NoCarrierFindWithGivenId();
+	static void CarrierNotFree();
 };
 

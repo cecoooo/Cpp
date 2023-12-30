@@ -40,3 +40,8 @@ void UserCount::increaseUserCount()
 	userFileWrite << userCount;
 	userFileWrite.close();
 }
+
+void UserCount::refreshUserCounter() 
+{
+	userCount = getLatestUserId();
+}

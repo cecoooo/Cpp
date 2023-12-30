@@ -15,8 +15,8 @@ private:
 	int yearOfPublish = 0;
 	int userId = 0;
 public:
-	Carrier();
 	Carrier(string ty, string au, string ti, int y);
+	Carrier(string ty, string au, string ti, int y, int i);
 	~Carrier();
 	int getId();
 	string getType();
@@ -28,7 +28,7 @@ public:
 	void setAuthor(string au);
 	void setTitle(string ti);
 	void setYearOfPublish(int y);
-	void borrowCarrierByUserWithId(int id);
+	void setState(int id);
 	string toString();
 	friend ostream& operator<<(ostream& os, const Carrier& c);
 };

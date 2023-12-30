@@ -53,3 +53,12 @@ void ErrMessages::NoUserFindWithGivenId()
 {
 	cout << "Invalid User ID.\nUser with the given id is not found." << endl;
 }
+void ErrMessages::NoCarrierFindWithGivenId()
+{
+	cout << "Invalid Carrier ID.\nCarrier with the given id is not found." << endl;
+}
+
+void ErrMessages::CarrierNotFree()
+{
+	cout << "This carrier is not free at the moment." << endl;
+}

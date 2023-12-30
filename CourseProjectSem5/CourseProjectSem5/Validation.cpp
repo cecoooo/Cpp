@@ -1,5 +1,6 @@
 #include "Validation.h"
 #include "UserCount.h"
+#include "CarrierCount.h"
 
 
 int Validation::stringLengthWithoutWhiteSpaces(string s) 
@@ -79,3 +80,11 @@ int Validation::validateUserId(int id)
 		return 175;
 	return 0;
 }
+
+int Validation::validateCarrierId(int id)
+{
+	if (id < 0 || id > CarrierCount::getCarrierCount())
+		return 181;
+	return 0;
+}
+

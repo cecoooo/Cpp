@@ -1,5 +1,7 @@
 #include "Library.h"
 #include <sstream>
+#include "Validation.h"
+#include "ErrMessages.h"
 using std::stringstream;
 
 const string Library::userFilePath = "user.txt";
@@ -51,9 +53,10 @@ void Library::addCarrier(Carrier c)
 vector<CarrierDTO> Library::getFreeCarriers()
 {
 	vector<CarrierDTO> res;
-	for (size_t i = 0; i < getCarriers().size(); i++)
-		if (getCarriers()[i].getState())
-			res.push_back(getCarriers()[i]);
+	vector<CarrierDTO> carrs = getCarriers();
+	for (size_t i = 0; i < carrs.size(); i++)
+		if (!carrs[i].getState())
+			res.push_back(carrs[i]);
 	return res;
 }
 
@@ -96,3 +99,85 @@ void Library::addUser(User u)
 	userFileWrite << u;
 	userFileWrite.close();
 }
+
+void Library::clearUserFile() 
+{
+	userFileWrite.open(userFilePath);
+	userFileWrite.close();
+	ofstream userFileWriteCount;
+	userFileWriteCount.open("usersIds.txt");
+	userFileWriteCount << 0;
+	userFileWriteCount.close();
+	UserCount::refreshUserCounter();
+}
+
+void Library::clearCarrierFile()
+{
+	carrierFileWrite.open(carrierFilePath);
+	carrierFileWrite.close();
+	ofstream carrierFileWriteCount;
+	carrierFileWriteCount.open("carriersIds.txt");
+	carrierFileWriteCount << 0;
+	carrierFileWriteCount.close();
+	CarrierCount::refreshCarrierCounter();
+}
+
+int Library::idValidation(int userId, int carrierId)
+{
+	int codeCarrier = Validation::validateCarrierId(carrierId);
+	int codeUser = Validation::validateUserId(userId);
+	bool isValidIds = true;
+	if (codeCarrier) {
+		ErrMessages::NoCarrierFindWithGivenId();
+		isValidIds = false;
+	}
+	if (codeUser) {
+		ErrMessages::NoUserFindWithGivenId();
+		isValidIds = false;
+	}
+	if (!isValidIds)
+		return 1;
+	vector<CarrierDTO> carrIds = getFreeCarriers();
+	bool isFreeCarrier = false;
+	for (size_t i = 0; i < carrIds.size(); i++) {
+		if (carrIds[i].getId() == carrierId) {
+			isFreeCarrier = true;
+			break;
+		}
+	}
+	if (!isFreeCarrier) {
+		ErrMessages::CarrierNotFree();
+		return 1;
+	}
+	return 0;
+}
+
+void Library::borrowCarrierWithUser(int userId, int carrierId)
+{
+	if (idValidation(userId, carrierId)) return;
+	vector<UserDTO> userDTOs = getUsers();
+	vector<CarrierDTO> carrierDTOs = getCarriers();
+	clearUserFile();
+	clearCarrierFile();
+	for (size_t i = 0; i < carrierDTOs.size(); i++)
+	{
+		if (carrierDTOs[i].getId() == carrierId) {
+			Carrier c(carrierDTOs[i].getType(), carrierDTOs[i].getAuthor(), carrierDTOs[i].getTitle(),
+				carrierDTOs[i].getYearOfPublish(), userId);
+			continue;
+		}
+		Carrier c1(carrierDTOs[i].getType(), carrierDTOs[i].getAuthor(), carrierDTOs[i].getTitle(),
+			carrierDTOs[i].getYearOfPublish(), carrierDTOs[i].getState());
+	}
+	for (size_t i = 0; i < userDTOs.size(); i++)
+	{
+		if (userDTOs[i].getId() == userId) {
+			User u(userDTOs[i].getName(), userDTOs[i].getAge(), userDTOs[i].getPhone(), 
+				userDTOs[i].getCarrierIds(), carrierId);
+			continue;
+		}
+		User u1(userDTOs[i].getName(), userDTOs[i].getAge(), userDTOs[i].getPhone(), 
+			userDTOs[i].getCarrierIds());
+	}
+}
+

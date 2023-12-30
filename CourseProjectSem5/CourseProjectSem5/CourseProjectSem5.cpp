@@ -7,6 +7,8 @@ using std::endl;
 
 int main()
 {
+    Library::clearCarrierFile();
+    Library::clearUserFile();
     User u("Ivan", 19, "0888123456");
     User u1("Ne e Ivan", 19, "0888123456");
     User u2("Gosho", 19, "0888123456");
@@ -21,6 +23,8 @@ int main()
     Carrier c4("CD-ROM", "J.K.Rolling", "Harry Potter", 1999);
     Carrier c5("CD-Ciganin", "J.K.Rolling", "Harry Potter", 1999);
     Carrier c6("Audio Book", "J.K.Rolling", "Harry Potter", 1999);
+    Library::borrowCarrierWithUser(1, 6);
+    Library::borrowCarrierWithUser(1, 7);
     /*for (size_t i = 0; i < Library::getCarriers().size(); i++)
     {
         cout << Library::getCarriers()[i].toString() << endl;

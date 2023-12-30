@@ -8,5 +8,6 @@ protected:
 	static void increaseUserCount();
 public:
 	static int getUserCount();
+	static void refreshUserCounter();
 };
 

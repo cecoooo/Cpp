@@ -9,5 +9,6 @@ protected:
 	static void increaseCarrierCount();
 public:
 	static int getCarrierCount();
+	static void refreshCarrierCounter();
 };
 

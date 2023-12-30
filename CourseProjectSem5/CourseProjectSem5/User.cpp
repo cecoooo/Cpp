@@ -1,4 +1,7 @@
 #include "User.h"
+#include "UserDTO.h"
+#include "CarrierDTO.h"
+#include "Carrier.h"
 #include "ErrMessages.h"
 #include "Validation.h"
 #include <iostream>
@@ -7,19 +10,33 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-
-User::User() 
-{
-	UserCount::increaseUserCount();
-	this->id = UserCount::getUserCount();
-	Library::addUser(*this);
-}
-
 User::User(string n, int a, string ph) 
 {
 	setName(n);
 	setAge(a);
 	setPhone(ph);
+	UserCount::increaseUserCount();
+	this->id = UserCount::getUserCount();
+	Library::addUser(*this);
+}
+
+User::User(string n, int a, string ph, vector<int> ids)
+{
+	setName(n);
+	setAge(a);
+	setPhone(ph);
+	setCarrierIds(ids);
+	UserCount::increaseUserCount();
+	this->id = UserCount::getUserCount();
+	Library::addUser(*this);
+}
+
+User::User(string n, int a, string ph, vector<int> ids, int i)
+{
+	setName(n);
+	setAge(a);
+	setPhone(ph);
+	setCarrierIds(ids, i);
 	UserCount::increaseUserCount();
 	this->id = UserCount::getUserCount();
 	Library::addUser(*this);
@@ -104,8 +121,14 @@ void User::setPhone(string ph)
 	this->phone = ph;
 }
 
-void User::borrowCarrier(int id) 
+void User::setCarrierIds(vector<int> cIds)
 {
+	this->carrierIds = cIds;
+}
+
+void User::setCarrierIds(vector<int> ids, int id) 
+{
+	this->carrierIds = ids;
 	this->carrierIds.push_back(id);
 }
 

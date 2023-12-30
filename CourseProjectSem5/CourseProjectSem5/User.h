@@ -17,8 +17,9 @@ private:
 	string phone = "0000000000";
 	vector<int> carrierIds;
 public:
-	User();
 	User(string n, int a, string ph);
+	User(string n, int a, string ph, vector<int> ids);
+	User(string n, int a, string ph, vector<int> ids, int i);
 	~User();
 	int getId();
 	string getName();
@@ -28,7 +29,8 @@ public:
 	void setName(string n);
 	void setAge(int a);
 	void setPhone(string p);
-	void borrowCarrier(int c);
+	void setCarrierIds(vector<int> cIds);
+	void setCarrierIds(vector<int> ids, int id);
 	string toString();
 	friend ostream& operator<<(ostream& os, const User& dt);
 };

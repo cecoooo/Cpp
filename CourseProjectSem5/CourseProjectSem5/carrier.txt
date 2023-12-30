@@ -3,19 +3,5 @@
 3/CD/Harry Potter/J.K.Rolling/1999/0
 4/DVD/Harry Potter/J.K.Rolling/1999/0
 5/CD-ROM/Harry Potter/J.K.Rolling/1999/0
-6/CD-Ciganin/Harry Potter/J.K.Rolling/1999/0
-7/Audio Book/Harry Potter/J.K.Rolling/1999/0
-8/Book/Harry Potter/J.K.Rolling/1999/0
-9/Book/Harry Potter/J.K.Rolling/1999/0
-10/CD/Harry Potter/J.K.Rolling/1999/0
-11/DVD/Harry Potter/J.K.Rolling/1999/0
-12/CD-ROM/Harry Potter/J.K.Rolling/1999/0
-13/CD-Ciganin/Harry Potter/J.K.Rolling/1999/0
-14/Audio Book/Harry Potter/J.K.Rolling/1999/0
-15/Book/Harry Potter/J.K.Rolling/1999/0
-16/Book/Harry Potter/J.K.Rolling/1999/0
-17/CD/Harry Potter/J.K.Rolling/1999/0
-18/DVD/Harry Potter/J.K.Rolling/1999/0
-19/CD-ROM/Harry Potter/J.K.Rolling/1999/0
-20/CD-Ciganin/Harry Potter/J.K.Rolling/1999/0
-21/Audio Book/Harry Potter/J.K.Rolling/1999/0
+6/CD-Ciganin/Harry Potter/J.K.Rolling/1999/1
+7/Audio Book/Harry Potter/J.K.Rolling/1999/1

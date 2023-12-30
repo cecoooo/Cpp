@@ -41,3 +41,8 @@ void CarrierCount::increaseCarrierCount()
 	carrierFileWrite << carrierCount;
 	carrierFileWrite.close();
 }
+
+void CarrierCount::refreshCarrierCounter() 
+{
+	carrierCount = getLatestCarrierId();
+}

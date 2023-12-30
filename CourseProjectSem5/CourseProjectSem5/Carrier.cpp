@@ -7,20 +7,24 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-
-Carrier::Carrier() 
-{
-	CarrierCount::increaseCarrierCount();
-	this->id = CarrierCount::getCarrierCount();
-	Library::addCarrier(*this);
-}
-
 Carrier::Carrier(string ty, string au, string ti, int y)
 {
 	setType(ty);
 	setAuthor(au);
 	setTitle(ti);
 	setYearOfPublish(y);
+	CarrierCount::increaseCarrierCount();
+	this->id = CarrierCount::getCarrierCount();
+	Library::addCarrier(*this);
+}
+
+Carrier::Carrier(string ty, string au, string ti, int y, int i)
+{
+	setType(ty);
+	setAuthor(au);
+	setTitle(ti);
+	setYearOfPublish(y);
+	this->userId = i;
 	CarrierCount::increaseCarrierCount();
 	this->id = CarrierCount::getCarrierCount();
 	Library::addCarrier(*this);
@@ -122,7 +126,7 @@ void Carrier::setYearOfPublish(int y)
 	this->yearOfPublish = y;
 }
 
-void Carrier::borrowCarrierByUserWithId(int id)
+void Carrier::setState(int id)
 {
 	int code = Validation::validateUserId(id);
 	while (code)
