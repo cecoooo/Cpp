@@ -81,8 +81,7 @@ string CarrierDTO::toString()
 		status = "Carrier is accessible";
 	else
 		status = "Carrier is unaccessible";
-	return "Carrier ID: " + std::to_string(this->id) + '\n' +
-		"Carrier type: " + this->type + '\n' +
+	return "Carrier type: " + this->type + '\n' +
 		"Author: " + this->author + '\n' +
 		"Title: " + this->title + '\n' +
 		"Year of publish: " + std::to_string(this->yearOfPublish) + '\n' +

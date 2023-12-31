@@ -1,4 +1,5 @@
 #include "UserDTO.h"
+#include "Library.h"
 
 UserDTO::UserDTO(){}
 
@@ -64,8 +65,13 @@ void UserDTO::borrowCarrier(int id)
 
 string UserDTO::toString()
 {
-	return "User ID: " + std::to_string(this->id) + '\n' +
-		"Name: " + this->name + '\n' +
+	string dataForCarriers = "";
+	for (size_t i = 0; i < carrierIds.size(); i++)
+		dataForCarriers.append(Library::getCarrierById(carrierIds[i]).toString());
+	return "Name: " + this->name + '\n' +
 		"Age: " + std::to_string(this->age) + '\n' +
-		"Phone: " + this->phone + '\n';
+		"Phone: " + this->phone + '\n' +
+		"---BORROWED CARRIERS----" + '\n' +
+		dataForCarriers +
+		"---END OF LIST----" + '\n';
 }

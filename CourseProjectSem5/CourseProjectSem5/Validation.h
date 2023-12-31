@@ -17,5 +17,6 @@ public:
 	static int validateCarrierYearOfPublish(int year);
 	static int validateUserId(int id);
 	static int validateCarrierId(int id);
+	static int validationIdsForBorrowingCarriersByUsers(int userId, int carrierId);
 };
 

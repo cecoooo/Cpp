@@ -18,15 +18,17 @@ private:
 	static ofstream carrierFileWrite;
 	static ifstream userFileRead;
 	static ifstream carrierFileRead;
-	static int idValidation(int userId, int carrierId);
 public:
 	static vector<UserDTO> getUsers();
 	static void addUser(User u);
 	static vector<CarrierDTO> getCarriers();
 	static void addCarrier(Carrier c);
 	static vector<CarrierDTO> getFreeCarriers();
+	static UserDTO getUserById(int id);
+	static CarrierDTO getCarrierById(int id);
 	static void clearUserFile();
 	static void clearCarrierFile();
 	static void borrowCarrierWithUser(int userId, int carrierId);
+	static UserDTO getUserByPhone(string phone);
 };
 

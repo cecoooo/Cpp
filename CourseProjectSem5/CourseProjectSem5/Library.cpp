@@ -2,6 +2,7 @@
 #include <sstream>
 #include "Validation.h"
 #include "ErrMessages.h"
+#include <iostream>
 using std::stringstream;
 
 const string Library::userFilePath = "user.txt";
@@ -100,6 +101,30 @@ void Library::addUser(User u)
 	userFileWrite.close();
 }
 
+UserDTO Library::getUserById(int id)
+{
+	UserDTO u;
+	vector<UserDTO> allUsers = getUsers();
+	for (size_t i = 0; i < allUsers.size(); i++)
+	{
+		if (allUsers[i].getId() == id)
+			u = allUsers[i];
+	}
+	return u;
+}
+
+CarrierDTO Library::getCarrierById(int id)
+{
+	CarrierDTO c;
+	vector<CarrierDTO> allCarriers = getCarriers();
+	for (size_t i = 0; i < allCarriers.size(); i++)
+	{
+		if (allCarriers[i].getId() == id)
+			c = allCarriers[i];
+	}
+	return c;
+}
+
 void Library::clearUserFile() 
 {
 	userFileWrite.open(userFilePath);
@@ -122,39 +147,9 @@ void Library::clearCarrierFile()
 	CarrierCount::refreshCarrierCounter();
 }
 
-int Library::idValidation(int userId, int carrierId)
-{
-	int codeCarrier = Validation::validateCarrierId(carrierId);
-	int codeUser = Validation::validateUserId(userId);
-	bool isValidIds = true;
-	if (codeCarrier) {
-		ErrMessages::NoCarrierFindWithGivenId();
-		isValidIds = false;
-	}
-	if (codeUser) {
-		ErrMessages::NoUserFindWithGivenId();
-		isValidIds = false;
-	}
-	if (!isValidIds)
-		return 1;
-	vector<CarrierDTO> carrIds = getFreeCarriers();
-	bool isFreeCarrier = false;
-	for (size_t i = 0; i < carrIds.size(); i++) {
-		if (carrIds[i].getId() == carrierId) {
-			isFreeCarrier = true;
-			break;
-		}
-	}
-	if (!isFreeCarrier) {
-		ErrMessages::CarrierNotFree();
-		return 1;
-	}
-	return 0;
-}
-
 void Library::borrowCarrierWithUser(int userId, int carrierId)
 {
-	if (idValidation(userId, carrierId)) return;
+	if (Validation::validationIdsForBorrowingCarriersByUsers(userId, carrierId)) return;
 	vector<UserDTO> userDTOs = getUsers();
 	vector<CarrierDTO> carrierDTOs = getCarriers();
 	clearUserFile();
@@ -181,3 +176,18 @@ void Library::borrowCarrierWithUser(int userId, int carrierId)
 	}
 }
 
+UserDTO Library::getUserByPhone(string phone)
+{
+	vector<UserDTO> users = getUsers();
+	UserDTO user;
+	bool isThereUser = true;
+	for (size_t i = 0; i < users.size(); i++) {
+		if (users[i].getPhone() == phone) {
+			user = users[i];
+			isThereUser = false;
+		}
+	}
+	if (isThereUser)
+		std::cout << "No User found with this phone." << std::endl;
+	return user;
+}

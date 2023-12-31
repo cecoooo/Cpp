@@ -1,7 +1,11 @@
-1/Book/Harry Potter/J.K.Rolling/1999/0
-2/Book/Harry Potter/J.K.Rolling/1999/0
-3/CD/Harry Potter/J.K.Rolling/1999/0
-4/DVD/Harry Potter/J.K.Rolling/1999/0
-5/CD-ROM/Harry Potter/J.K.Rolling/1999/0
-6/CD-Ciganin/Harry Potter/J.K.Rolling/1999/1
-7/Audio Book/Harry Potter/J.K.Rolling/1999/1
+1/Book/J.K.Rolling/Harry Potter/1999/1
+2/Movie/Christopher Nolan/Inception/2010/1
+3/Music Album/Taylor Swift/1989/2014/11
+4/Book/George R.R. Martin/A Game of Thrones/1996/0
+5/Movie/Quentin Tarantino/Pulp Fiction/1994/0
+6/Music Album/Ed Sheeran/Divide/2017/0
+7/Book/Agatha Christie/Murder on the Orient Express/1934/0
+8/Movie/Greta Gerwig/Little Women/2019/0
+9/Music Album/Beyonce/Lemonade/2016/0
+10/Book/Harper Lee/To Kill a Mockingbird/1960/0
+11/Movie/Steven Spielberg/Jurassic Park/1993/0

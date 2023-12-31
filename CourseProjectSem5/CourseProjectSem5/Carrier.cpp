@@ -159,7 +159,7 @@ string Carrier::toString()
 
 ostream& operator<<(ostream& os, const Carrier& c)
 {
-	os << c.id << '/' << c.type << '/' << c.title << '/' << c.author 
+	os << c.id << '/' << c.type << '/' << c.author << '/' << c.title 
 		<< '/' << c.yearOfPublish << '/' << c.userId << '\n';
 	return os;
 }

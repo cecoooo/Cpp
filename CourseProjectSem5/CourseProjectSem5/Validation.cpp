@@ -1,5 +1,8 @@
 #include "Validation.h"
 #include "UserCount.h"
+#include "ErrMessages.h"
+#include "Library.h"
+#include <vector>
 #include "CarrierCount.h"
 
 
@@ -84,7 +87,36 @@ int Validation::validateUserId(int id)
 int Validation::validateCarrierId(int id)
 {
 	if (id < 0 || id > CarrierCount::getCarrierCount())
-		return 181;
+		return 176;
 	return 0;
 }
 
+int Validation::validationIdsForBorrowingCarriersByUsers(int userId, int carrierId) 
+{
+	int codeCarrier = validateCarrierId(carrierId);
+	int codeUser = validateUserId(userId);
+	bool isValidIds = true;
+	if (codeCarrier) {
+		ErrMessages::NoCarrierFindWithGivenId();
+		isValidIds = false;
+	}
+	if (codeUser) {
+		ErrMessages::NoUserFindWithGivenId();
+		isValidIds = false;
+	}
+	if (!isValidIds)
+		return 1;
+	vector<CarrierDTO> carrIds = Library::getFreeCarriers();
+	bool isFreeCarrier = false;
+	for (size_t i = 0; i < carrIds.size(); i++) {
+		if (carrIds[i].getId() == carrierId) {
+			isFreeCarrier = true;
+			break;
+		}
+	}
+	if (!isFreeCarrier) {
+		ErrMessages::CarrierNotFree();
+		return 1;
+	}
+	return 0;
+}
