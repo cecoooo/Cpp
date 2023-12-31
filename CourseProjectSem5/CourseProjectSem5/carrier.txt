@@ -9,3 +9,5 @@
 9/Music Album/Beyonce/Lemonade/2016/0
 10/Book/Harper Lee/To Kill a Mockingbird/1960/0
 11/Movie/Steven Spielberg/Jurassic Park/1993/0
+12/Book/IvanVazov/PodIgoto/1900/12
+13/CD/FriedlyScott/Gladiator/2000/13

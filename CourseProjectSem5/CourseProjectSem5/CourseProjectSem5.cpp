@@ -19,6 +19,7 @@ void registerNewUser()
     cout << "Age: ";
     cin >> age;
     User user(name, age, phone);
+    cout << "--USER REGISTERED SUCCESSFULLY--" << endl;
 }
 
 void insertNewCarrier()
@@ -35,6 +36,7 @@ void insertNewCarrier()
     cout << "Year: ";
     cin >> year;
     Carrier carrier(type, author, title, year);
+    cout << "--CARRIER REGISTERED SUCCESSFULLY--" << endl;
 }
 
 void lookForCarrier() 
@@ -108,15 +110,16 @@ void lookForCarrier()
         else
             cout << "UNRECOGNIZED COMMAND. TRY AGAIN." << endl;
     }
+    cout << "--PROCESS STOPPED--" << endl;
 }
 
 void getAllFreeCarriers() 
 {
-    cout << "LIST OF ALL FREE CARRIERS" << endl;
+    cout << "--LIST OF ALL FREE CARRIERS--" << endl;
     vector<CarrierDTO> freeCarriers = Library::getFreeCarriers();
     for (size_t i = 0; i < freeCarriers.size(); i++)
         cout << freeCarriers[i].toString();
-    cout << "END OF THE LIST" << endl;
+    cout << "--END OF THE LIST--" << endl;
 }
 
 void getCarrierFromTheLibrary() 
@@ -175,21 +178,21 @@ void getInformationForUser()
         cin >> ph;
         user = Library::getUserByPhone(ph);
     }
-    cout << user.toString() << endl;
+    cout << "--INFO--\n" << user.toString() << endl;
 }
 
 int main()
 {
     cout << "-----LIBRARY-----\n" << endl;
-    cout << "TO REGISTER A NEW USERS, PRESS '1'" << endl <<
-        "TO INSERT A NEW CARRIERS, PRESS '2'" << endl <<
-        "TO LOOK FOR A CARRIER, PRESS '3'" << endl <<
-        "TO LOOK AT ALL FREE CARRIERS, PRESS '4'" << endl <<
-        "TO GET A CARRIER FROM THE LIBRARY, PRESS '5'" << endl <<
-        "TO GET INFORMATION FOR A USER, PRESS '6'" << endl <<
-        "TO END THE PROGRAM, PRESS '0'" << endl;
     int initialInput;
     while (true) {
+        cout << "TO REGISTER A NEW USERS, PRESS '1'" << endl <<
+            "TO INSERT A NEW CARRIERS, PRESS '2'" << endl <<
+            "TO LOOK FOR A CARRIER, PRESS '3'" << endl <<
+            "TO LOOK AT ALL FREE CARRIERS, PRESS '4'" << endl <<
+            "TO GET A CARRIER FROM THE LIBRARY, PRESS '5'" << endl <<
+            "TO GET INFORMATION FOR A USER, PRESS '6'" << endl <<
+            "TO END THE PROGRAM, PRESS '0'" << endl;
         cin >> initialInput;
         if (initialInput == 1)
         {
@@ -222,40 +225,4 @@ int main()
     }
     cout << "PROGRAM ENDS SUCCESSFULLY.";
     return 0;
-
-
-    /*Library::clearCarrierFile();
-    Library::clearUserFile();
-    User u("Ivan", 19, "0888123456");
-    User u1("Alice", 25, "0777123456");
-    User u2("Bob", 30, "0909123456");
-    User u3("Eva", 22, "0555123456");
-    User u4("Daniel", 28, "0666123456");
-    User u5("Sophie", 35, "0999123456");
-    User u6("Michael", 32, "0888123456");
-    User u7("Olivia", 27, "0777123456");
-    User u8("David", 40, "0909123456");
-    User u9("Isabella", 19, "0555123456");
-    User u10("James", 24, "0666123456");
-    Carrier c("Book", "J.K.Rolling", "Harry Potter", 1999);
-    Carrier c1("Movie", "Christopher Nolan", "Inception", 2010);
-    Carrier c2("Music Album", "Taylor Swift", "1989", 2014);
-    Carrier c3("Book", "George R.R. Martin", "A Game of Thrones", 1996);
-    Carrier c4("Movie", "Quentin Tarantino", "Pulp Fiction", 1994);
-    Carrier c5("Music Album", "Ed Sheeran", "Divide", 2017);
-    Carrier c6("Book", "Agatha Christie", "Murder on the Orient Express", 1934);
-    Carrier c7("Movie", "Greta Gerwig", "Little Women", 2019);
-    Carrier c8("Music Album", "Beyonce", "Lemonade", 2016);
-    Carrier c9("Book", "Harper Lee", "To Kill a Mockingbird", 1960);
-    Carrier c10("Movie", "Steven Spielberg", "Jurassic Park", 1993);
-    Library::borrowCarrierWithUser(1, 1);
-    Library::borrowCarrierWithUser(1, 2);
-    for (size_t i = 0; i < Library::getCarriers().size(); i++)
-    {
-        cout << Library::getCarriers()[i].toString() << endl;
-    }
-    for (size_t i = 0; i < Library::getUsers().size(); i++)
-    {
-        cout << Library::getUsers()[i].toString() << endl;
-    }*/
 };
