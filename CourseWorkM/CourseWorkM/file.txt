@@ -1,44 +1,11 @@
 PERSON DATA
 Name: Ivan
 EGN: 1234567890
-Address: Bulgaria, Varna, IvanVazov, 12
+Address: Region: East Europe
+Bulgaria, Plovdiv, Ivan Vazov, 30
 PROPERTY DATA
-Region: Sofia
-Bulgaria, Sofia, Lozenec, 34
+Region: East Europe
+Bulgaria, Sofia, Lozenec, 12
 Number of rooms: 5
-Price: 1000000.000000
-For Sale
-
-PERSON DATA
-Name: Georgi
-EGN: 0987654321
-Address: Bulgaria, Pleven, GerogiRakovski, 90
-PROPERTY DATA
-Region: Europe
-Bulgaria, Sofia, OvchaKupel, 23
-Number of rooms: 3
-Price: 500000.000000
+Price: 5000000.000000
 For Rent
-
-PERSON DATA
-Name: Pesho
-EGN: 125435243647
-Address: Bulgaria, Vratsa, alabala, 31
-PROPERTY DATA
-Region: Europe
-Bulgaria, Sofia, MominProhod, 32
-Number of rooms: 4
-Price: 123412312.000000
-For Sale
-
-PERSON DATA
-Name: Ivan
-EGN: 1234567890
-Address: Bulgaria, Varna, IvanVazov, 13
-PROPERTY DATA
-Region: Europe
-Bulgaria, Sofia, Luksozenec, 32
-Number of rooms: 4
-Price: 15453543.000000
-For Rent
-
