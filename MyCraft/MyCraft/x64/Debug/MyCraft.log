@@ -1,5 +1,0 @@
-﻿  MyCraft.cpp
-  Player.cpp
-  Generating Code...
-Player.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl Hero::~Hero(void)" (??1Hero@@UEAA@XZ) referenced in function "public: virtual __cdecl Player::~Player(void)" (??1Player@@UEAA@XZ)
-C:\Users\User\Desktop\PushToGithub\c++\MyCraft\x64\Debug\MyCraft.exe : fatal error LNK1120: 1 unresolved externals
